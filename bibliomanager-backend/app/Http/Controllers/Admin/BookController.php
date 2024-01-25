@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -15,7 +18,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::where('user_id', Auth::id())->get();
+
+        return view('admin.books.index', compact('books'));
     }
 
     /**
@@ -23,7 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.books.create');
     }
 
     /**
@@ -31,15 +36,33 @@ class BookController extends Controller
      */
     public function store(StoreBookRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        $val_data['slug'] = Str::slug($request->title, '-');
+
+        if ($request->has('image')) {
+            $path = Storage::put('images', $request->image);
+            $val_data['image'] = $path;
+        }
+
+        $val_data['user_id'] = Auth::id();
+        $new_book = Book::create($val_data);
+
+        return to_route('admin.books.index', $new_book)->with('message', 'Libro aggiunto correttamente!📖');
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(Book $book)
     {
-        //
+
+        if ($book->user_id === Auth::id()) {
+            return view('admin.books.show', compact('book'));
+        }
+
+        abort(404, 'Questo libro non esiste');
     }
 
     /**

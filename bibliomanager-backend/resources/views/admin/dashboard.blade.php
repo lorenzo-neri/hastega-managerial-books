@@ -24,17 +24,27 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 ">
-            <div class="col bg-warning p-1  ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi debitis sed id voluptate tenetur magnam dicta
-                sapiente rem, fugit harum veritatis. Dolorem dolorum cumque culpa, aliquam a at repellat minima?
+        <div class="row py-3 row-cols-1 row-cols-md-3 ">
+            <div class="col">
+
+                <a href="{{ route('admin.books.create') }}">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <div class="fs-3 fw-3">AGGIUNGI UN LIBRO</div>
+                        </div>
+
+                        <div class="card-body">
+                            <img class="img-fluid" src="{{ asset('images/add-book.jpeg') }}" alt="Aggiungi un libro!">
+                        </div>
+                    </div>
+                </a>
             </div>
             <!-- /.col -->
-            <div class="col bg-warning p-1 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, iure,
+            <div class="col ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, iure,
                 voluptatem commodi repellendus fugiat fuga vel quos officiis magni velit aliquid expedita minus quaerat
                 mollitia, illum harum perferendis aut repellat.</div>
             <!-- /.col -->
-            <div class="col bg-warning p-1 ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, iure,
+            <div class="col  ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, iure,
                 voluptatem commodi repellendus fugiat fuga vel quos officiis magni velit aliquid expedita minus quaerat
                 mollitia, illum harum perferendis aut repellat.</div>
             <!-- /.col -->

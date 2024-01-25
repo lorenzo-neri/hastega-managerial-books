@@ -17,9 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('author');
             $table->string('isbn')->unique();
-            $table->date('added_date');
-            $table->date('deleted_date')->nullable();
-            $table->text('plot');
+            $table->text('plot')->nullable();;
             $table->integer('read_count')->default(0);
 
             $table->foreign('user_id')->references('id')->on('users');
@@ -27,6 +25,7 @@ return new class extends Migration
 
             $table->string('slug')->unique()->nullable();
             $table->string('image')->nullable();
+            $table->string('url');
 
             $table->timestamps();
         });

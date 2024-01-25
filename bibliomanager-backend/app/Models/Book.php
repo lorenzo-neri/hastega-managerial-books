@@ -20,6 +20,7 @@ class Book extends Model
 
         'slug',
         'image',
+        'url',
     ];
 
     //relazione con l'utente

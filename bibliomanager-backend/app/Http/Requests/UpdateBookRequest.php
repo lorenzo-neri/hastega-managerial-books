@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateBookRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::id();
     }
 
     /**
@@ -22,7 +23,13 @@ class UpdateBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => ['exists:users,id'],
+            'title' => ['required', 'string', 'max:255'],
+            'author' => ['required', 'string', 'max:255'],
+            'isbn' => ['required', 'string', 'unique:books,isbn'],
+            'plot' => ['nullable', 'string'],
+            'image' => ['nullable', 'image', 'max:300'],
+            'url' => ['required', 'url'],
         ];
     }
 }

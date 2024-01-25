@@ -83,16 +83,16 @@
                             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
                                 role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header  bg-warning">
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         Attenzione! Sei sicuro di voler eliminare?
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer bg-warning">
                                         <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Chiudi</button>
+                                            data-bs-dismiss="modal">Annulla</button>
 
                                         <!-- Delete form -->
                                         <form action="{{ route('admin.books.destroy', $book->slug) }}" method="POST">

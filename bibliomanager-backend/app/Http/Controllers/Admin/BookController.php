@@ -70,7 +70,12 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        if ($book->user_id === Auth::id()) {
+
+            return view('admin.books.edit', compact('book'));
+        }
+
+        abort(404, 'Questo libro non esiste');
     }
 
     /**
@@ -78,7 +83,27 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        //
+        $val_data = $request->validated();
+
+        if ($request->has('image')) {
+
+            $path = Storage::put('images', $request->image);
+            $val_data['image'] = $path;
+
+            if (!is_Null($book->image) && Storage::fileExists($book->image)) {
+                Storage::delete($book->image);
+            }
+        }
+
+        $val_data['slug'] = Str::slug($request->title, '-');
+
+        $book->update($val_data);
+
+        if ($request->has('user_id')) {
+            $book->user_id()->sync($val_data['user_id']);
+        }
+
+        return to_route('admin.books.show', $book)->with('message', 'Libro modificato con successo! 🖋');
     }
 
     /**

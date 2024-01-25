@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2 class="fs-4 text-dark py-4">
-            {{ __('Aggiungi Libro') }} - {{ Auth::user()->name }}
+            {{ __('Modifica Libro') }} {{ Auth::user()->name }}.
         </h2>
 
         <div class="row justify-content-center my-3">
@@ -20,17 +20,18 @@
                 @endif
 
 
-                <form action="{{ route('admin.books.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.books.update', $book) }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
+                    @method('put')
 
                     {{-- BOOK TITLE --}}
                     <div class="mb-3">
                         <label for="title" class="form-label"><strong>Titolo</strong></label>
 
                         <input type="text" class="form-control" name="title" id="title"
-                            aria-describedby="helpTitle" placeholder="New book title" required value="{{ old('title') }}">
-
+                            aria-describedby="helptitle" placeholder="New Book title" required
+                            value="{{ old('title') ? old('title') : $book->title }}">
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -87,7 +88,6 @@
                         @enderror
                     </div>
 
-
                     {{-- Book IMG --}}
                     <div class="mb-3">
                         <label for="image" class="form-label"><strong>Scegli un'immagine per il tuo
@@ -101,9 +101,9 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-success my-3 px-3">SALVA</button>
-
-                    <a class="btn btn-secondary" href="{{ route('admin.dashboard') }}">ANNULLA</a>
+                    {{-- submit button --}}
+                    <button type="submit" class="btn btn-success my-3">SALVA</button>
+                    <a class="btn btn-primary" href="{{ route('admin.books.index') }}">ANNULLA</a>
 
                 </form>
             </div>

@@ -40,10 +40,12 @@
                                 {{ $book->isbn }}
                             </td>
                             <td>
-                                contatore di letture
+                                {{ $book->read_count }}
                             </td>
                             <td>
-                                <a href="{{ $book->url }}">icona</a>
+                                <a href="{{ $book->url }}">
+                                    <i class="fa-solid fa-book-open fa-2xl" style="color: #34b253;"></i>
+                                </a>
                             </td>
                             <td>
                                 <div style="height: 100%" class="d-flex align-items-center  gap-2  justify-content-center">
@@ -69,16 +71,16 @@
                                     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
                                         role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header  bg-warning">
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                Attention! You cannot go back from this
+                                                Attenzione! Sei sicuro di voler eliminare?
                                             </div>
-                                            <div class="modal-footer">
+                                            <div class="modal-footer bg-warning">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
+                                                    data-bs-dismiss="modal">Annulla</button>
 
                                                 <!-- Delete form -->
                                                 <form action="{{ route('admin.books.destroy', $book->slug) }}"

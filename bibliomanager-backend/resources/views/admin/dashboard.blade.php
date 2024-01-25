@@ -40,9 +40,23 @@
                 </a>
             </div>
             <!-- /.col -->
-            <div class="col ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, iure,
-                voluptatem commodi repellendus fugiat fuga vel quos officiis magni velit aliquid expedita minus quaerat
-                mollitia, illum harum perferendis aut repellat.</div>
+            <div class="col">
+
+                <a class="" href="{{ route('admin.books.index') }}">
+                    <div class="card_btn">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <div class="fs-3 fw-3">TABELLA DEI LIBRI</div>
+                            </div>
+
+                            <div class="card-body">
+                                <img class="img-fluid" src="{{ asset('images/books.jpeg') }}"
+                                    alt="Ecco a te la tabella dei libri!">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <!-- /.col -->
             <div class="col  ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, iure,
                 voluptatem commodi repellendus fugiat fuga vel quos officiis magni velit aliquid expedita minus quaerat

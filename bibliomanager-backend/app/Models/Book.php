@@ -16,7 +16,10 @@ class Book extends Model
         'isbn',
         'plot',
         'read_count',
-        'user_id'
+        'user_id',
+
+        'slug',
+        'image',
     ];
 
     //relazione con l'utente

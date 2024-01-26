@@ -30,7 +30,7 @@
                         <label for="title" class="form-label"><strong>Titolo</strong></label>
 
                         <input type="text" class="form-control" name="title" id="title"
-                            aria-describedby="helptitle" placeholder="New Book title" required
+                            aria-describedby="helptitle" placeholder="Titolo del libro" required
                             value="{{ old('title') ? old('title') : $book->title }}">
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
                         <label for="name" class="form-label"><strong>Autore</strong></label>
 
                         <input type="text" class="form-control" name="author" id="author"
-                            aria-describedby="helpAuthor" placeholder="New book author" required
+                            aria-describedby="helpAuthor" placeholder="Autore del libro" required
                             value="{{ old('author') }}">
 
                         @error('author')
@@ -56,8 +56,7 @@
                             <div class="col">
                                 <label for="isbn" class="form-label"><strong>Codice ISBN</strong></label>
                                 <input type="number" class="form-control" name="isbn" id="isbn"
-                                    aria-describedby="helpisbn" placeholder="Put the isbn code" required
-                                    value="{{ old('isbn') }}">
+                                    aria-describedby="helpisbn" placeholder="# # # #" required value="{{ old('isbn') }}">
 
                                 @error('isbn')
                                     <div class="text-danger">{{ $message }}</div>
@@ -67,7 +66,7 @@
                             <div class="col">
                                 <label for="url" class="form-label"><strong>Url del libro</strong></label>
                                 <input type="url" class="form-control" name="url" id="url"
-                                    aria-describedby="helpurl" placeholder="New book url" required
+                                    aria-describedby="helpurl" placeholder="https://..." required
                                     value="{{ old('url') }}">
 
                                 @error('url')
@@ -81,7 +80,7 @@
                     <div class="mb-3">
                         <label for="plot" class="form-label"><strong>Trama</strong></label>
                         <input type="text" class="form-control" name="plot" id="plot" aria-describedby="helpPlot"
-                            placeholder="New book plot" required value="{{ old('plot') }}">
+                            placeholder="Trama del libro" required value="{{ old('plot') }}">
 
                         @error('plot')
                             <div class="text-danger">{{ $message }}</div>
@@ -94,7 +93,7 @@
                                 libro</strong></label>
 
                         <input type="file" class="form-control" name="image" id="image"
-                            placeholder="Upload a new image file..." aria-describedby="fileHelpImage">
+                            placeholder="Che copertina ha il tuo libro?" aria-describedby="fileHelpImage">
 
                         @error('image')
                             <div class="text-danger">{{ $message }}</div>

@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container">
-        <h2 class="fs-4 text-secondary my-4">
+        {{-- <h2 class="fs-4 text-secondary my-4">
             {{ __('Dashboard') }}
-        </h2>
-        <div class="row justify-content-center">
+        </h2> --}}
+        <div class="row mt-4 justify-content-center">
             <div class="col">
                 <div class="card">
                     <div class="card-header">{{ __('User Dashboard') }}</div>
@@ -58,9 +58,22 @@
                 </a>
             </div>
             <!-- /.col -->
-            <div class="col  ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae, iure,
-                voluptatem commodi repellendus fugiat fuga vel quos officiis magni velit aliquid expedita minus quaerat
-                mollitia, illum harum perferendis aut repellat.</div>
+            <div class="col  ">
+                <a class="" href="{{ route('admin.books.recycle') }}">
+                    <div class="card_btn">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <div class="fs-3 fw-3">LIBRI ELIMINATI</div>
+                            </div>
+
+                            <div class="card-body">
+                                <img class="img-fluid" src="{{ asset('images/trash.jpeg') }}"
+                                    alt="Ecco a te la tabella dei libri eliminati!">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <!-- /.col -->
         </div>
         <!-- /.row -->

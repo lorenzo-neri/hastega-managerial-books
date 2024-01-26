@@ -111,6 +111,37 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        if ($book->user_id === Auth::id()) {
+            if ($book->image) {
+                Storage::delete($book->image);
+            }
+
+            $book->delete();
+
+            return to_route('admin.books.index')->with('message', 'Libro eliminato correttamente 👌');
+        }
+
+        abort(403, 'Non puoi cancellare questo libro!');
+    }
+
+    public function recycle()
+    {
+        $trashed_books = Book::onlyTrashed()->orderByDesc('id')->get();
+
+        return view('admin.books.recycle', compact('trashed_books'));
+    }
+
+    public function restore($id)
+    {
+
+        $book = Book::onlyTrashed()->find($id);
+        //dd($book);
+
+        //$book->restore();
+
+        if ($book) {
+            $book->restore();
+            return redirect()->route('admin.books.recycle')->with('status', 'Libro ripristinato con successo♻️');
+        }
     }
 }

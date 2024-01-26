@@ -10,12 +10,12 @@
             <table class="table border table-striped table-hover table-light">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>ISBN Code</th>
-                        <th>Read Count</th>
-                        <th>Url book</th>
-                        <th>Actions</th>
+                        <th>Titolo</th>
+                        <th>Autore</th>
+                        <th>Codice ISBN</th>
+                        <th>Lettori</th>
+                        <th>Url del libro</th>
+                        <th>Azioni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,7 +102,7 @@
                         </tr>
                     @empty
                         <h3 class="py-3">
-                            No books at the moment
+                            Non hai libri al momento
                         </h3>
                     @endforelse
 

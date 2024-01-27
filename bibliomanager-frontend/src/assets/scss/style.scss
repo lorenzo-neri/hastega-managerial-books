@@ -1,1 +1,15 @@
 @use "../node_modules/bootstrap/scss/bootstrap.scss";
+
+a {
+    text-decoration: none;
+}
+
+.card {
+    transition: transform 0.5s, box-shadow 1s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 5px rgb(161, 170, 28);
+    }
+}

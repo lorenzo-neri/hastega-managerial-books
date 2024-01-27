@@ -21,6 +21,7 @@ export default {
           <div style="width: 70px">
             <img class=" img-fluid " src="../assets/img/logo-bibliomanager.jpeg" alt="">
           </div>
+          <strong>BiblioManager</strong>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

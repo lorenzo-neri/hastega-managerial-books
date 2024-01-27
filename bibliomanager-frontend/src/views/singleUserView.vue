@@ -15,6 +15,14 @@ export default {
         getBookImageUrl(imagePath) {
             // Rimuovi la parte "images/" dal percorso dell'immagine
             return imagePath.replace('images/', '');
+        },
+        async incrementReadCount(userId, bookId) {
+            try {
+                const response = await axios.post(`${this.state.base_url}api/user/${userId}/book/${bookId}/increment-read-count`);
+                console.log('Contatore incrementato:', response.data.result);
+            } catch (error) {
+                console.error(error);
+            }
         }
     },
     mounted() {
@@ -51,7 +59,8 @@ export default {
                             <p class="card-text"><strong>Plot:</strong> {{ book.plot }}</p>
                             <div class="d-flex justify-content-center ">
 
-                                <a :href="book.url" class="btn btn-primary">Leggi il libro!</a>
+                                <a @click="incrementReadCount(singleUser.id, book.id)" :href="book.url"
+                                    class="btn btn-primary">Leggi il libro!</a>
                             </div>
                         </div>
                     </div>

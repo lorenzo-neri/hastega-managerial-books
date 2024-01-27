@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//case editrici
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/user/{user:slug}', [UserController::class, 'show']);
-//Route::get('/users/books/{book:slug}', [UserController::class, 'show']);
+
+//libri
+Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/{slug}', [BookController::class, 'show']);
+
+//counter letture
 Route::post('/user/{userId}/book/{bookId}/increment-read-count', [UserController::class, 'incrementReadCount']);

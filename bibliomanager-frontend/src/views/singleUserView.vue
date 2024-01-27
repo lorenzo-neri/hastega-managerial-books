@@ -56,7 +56,7 @@ export default {
                             <h5 class="card-title">{{ book.title }}</h5>
                             <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
                             <p class="card-text"><strong>Codice ISBN:</strong> {{ book.isbn }}</p>
-                            <p class="card-text"><strong>Plot:</strong> {{ book.plot }}</p>
+                            <!--  <p class="card-text"><strong>Plot:</strong> {{ book.plot }}</p> -->
                             <div class="d-flex justify-content-center ">
 
                                 <a @click="incrementReadCount(singleUser.id, book.id)" :href="book.url"

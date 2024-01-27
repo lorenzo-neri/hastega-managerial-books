@@ -34,4 +34,19 @@ class UserController extends Controller
             ]);
         }
     }
+
+
+
+    public function incrementReadCount($userId, $bookId)
+    {
+        $user = User::findOrFail($userId);
+        $book = $user->books()->findOrFail($bookId);
+
+        $book->increment('read_count');
+
+        return response()->json([
+            'success' => true,
+            'result' => $book->read_count,
+        ]);
+    }
 }

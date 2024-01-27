@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/user/{user:slug}', [UserController::class, 'show']);
 //Route::get('/users/books/{book:slug}', [UserController::class, 'show']);
+Route::post('/user/{userId}/book/{bookId}/increment-read-count', [UserController::class, 'incrementReadCount']);

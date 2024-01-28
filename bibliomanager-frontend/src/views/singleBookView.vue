@@ -45,7 +45,7 @@ export default {
                 <p><strong>Codice ISBN:</strong> {{ singleBook.isbn }}</p>
                 <p><strong>Trama:</strong> {{ singleBook.plot }}</p>
                 <div class="d-flex justify-content-center pt-3">
-                    <a @click="incrementReadCount(singleBook.user_id, singleBook.id)" :href="singleBook.url"
+                    <a target="_blank" @click="incrementReadCount(singleBook.user_id, singleBook.id)" :href="singleBook.url"
                         class="btn btn-primary">Leggi il
                         libro!</a>
                 </div>

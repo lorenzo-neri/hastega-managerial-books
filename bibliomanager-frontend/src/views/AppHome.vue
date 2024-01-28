@@ -32,10 +32,10 @@ export default {
                     <router-link :to="{ name: 'singleUser', params: { slug: user.slug } }">
                         <div class="card">
                             <div class="card-header text-center bg-primary text-light ">
-                                <div class="fs-3 fw-3">{{ user.name }}</div>
+                                <div class="fs-2 fw-3">{{ user.name }}</div>
                             </div>
 
-                            <div class="card-body text-center">
+                            <div class="fs-4 card-body text-center">
                                 Scopri i libri!
                             </div>
                         </div>

@@ -20,6 +20,7 @@
                         <th>Titolo</th>
                         <th>Autore</th>
                         <th>Codice ISBN</th>
+                        <th>Rimosso in data</th>
                         <th>Azioni</th>
                     </tr>
                 </thead>
@@ -35,6 +36,9 @@
 
                             {{-- ISBN --}}
                             <td class="align-middle">{{ $book->isbn }}</td>
+
+                            {{-- Rimosso il --}}
+                            <td class="align-middle">{{ $book->deleted_at }}</td>
 
                             {{-- RESTORE --}}
                             <td class="align-middle text-center">

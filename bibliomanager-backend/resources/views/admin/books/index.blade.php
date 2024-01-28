@@ -15,6 +15,7 @@
                         <th>Codice ISBN</th>
                         <th>Lettori</th>
                         <th>Url del libro</th>
+                        <th>Aggiunto in data</th>
                         <th>Azioni</th>
                     </tr>
                 </thead>
@@ -46,6 +47,9 @@
                                 <a href="{{ $book->url }}">
                                     <i class="fa-solid fa-book-open fa-2xl" style="color: #34b253;"></i>
                                 </a>
+                            </td>
+                            <td>
+                                {{ $book->created_at }}
                             </td>
                             <td>
                                 <div style="height: 100%" class="d-flex align-items-center  gap-2  justify-content-center">

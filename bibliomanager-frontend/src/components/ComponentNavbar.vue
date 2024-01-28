@@ -32,8 +32,13 @@ export default {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <router-link class="nav-link active" to="/" aria-current="page">
+              <router-link class="nav-link active" to="/home" aria-current="page">
                 Home
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link active" to="/" aria-current="page">
+                Login
               </router-link>
             </li>
           </ul>

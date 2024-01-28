@@ -12,10 +12,6 @@ export default {
         }
     },
     methods: {
-        getBookImageUrl(imagePath) {
-            // Rimuovi la parte "images/" dal percorso dell'immagine
-            return imagePath.replace('images/', '');
-        },
         async incrementReadCount(userId, bookId) {
             try {
                 const response = await axios.post(`${this.state.base_url}api/user/${userId}/book/${bookId}/increment-read-count`);
@@ -68,6 +64,18 @@ export default {
             </div>
             <!-- /.row -->
 
+        </div>
+        <div class="row" v-else>
+            <div class="container py-5">
+                <div class="py-5 text-center">
+                    <p class="fs-1">
+                        <i class="fa-solid fa-compact-disc fa-spin"></i>
+                        <strong>
+                            Caricamento...
+                        </strong>
+                    </p>
+                </div>
+            </div>
         </div>
 
     </div>

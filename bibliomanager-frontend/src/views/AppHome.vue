@@ -11,6 +11,7 @@ export default {
     },
     mounted() {
         this.state.fetchUsers();
+        this.state.fetchBooks();
     },
 
 
@@ -42,10 +43,45 @@ export default {
 
             </div>
             <!-- /.row -->
+            <h2 class="pt-3">Libri:</h2>
+            <div class="row py-3 row-cols-1 row-cols-md-3 ">
+
+
+                <div v-for="book in state.books" :key="book.id" class="col p-2">
+                    <!-- <router-link :to="{ name: 'singleUser', params: { slug: user.slug } }"> -->
+                    <div class="card">
+                        <div class="card-header text-center bg-primary text-light ">
+                            <div class="fs-3 fw-3">{{ book.title }}</div>
+                        </div>
+
+                        <div class="card-body d-flex justify-content-around ">
+                            <div>
+                                <img width="100px" class="img-fluid" :src="state.base_url + 'storage/' + book.image"
+                                    alt="copertina">
+                            </div>
+                            <div>
+                                <div>
+                                    Autore: {{ book.author }}
+                                </div>
+                                <div>
+                                    Codice ISBN: {{ book.isbn }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </router-link> -->
+                </div>
+                <!-- /.col -->
+
+            </div>
+            <!-- /.row -->
+
+
+
+
+
 
         </div>
-
-
 
 
 

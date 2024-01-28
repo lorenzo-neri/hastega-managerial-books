@@ -27,7 +27,7 @@ class StoreBookRequest extends FormRequest
             'user_id' => ['exists:users,id'],
             'title' => ['required', 'string', 'max:255'],
             'author' => ['required', 'string', 'max:255'],
-            'isbn' => ['required', 'string', 'unique:books,isbn'],
+            'isbn' => ['required', 'string', 'unique:books,isbn', 'digits:13'],
             'plot' => ['nullable', 'string'],
             'image' => ['nullable', 'image', 'max:300'],
             'url' => ['required', 'url'],

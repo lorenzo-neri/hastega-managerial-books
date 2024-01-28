@@ -40,10 +40,10 @@ export default {
 <template>
     <div class="container">
 
-        <div v-if="this.singleUser">
+        <div v-if="singleUser">
 
             <h2 class="pt-3">{{ singleUser.name }}</h2>
-            <p>Email: {{ singleUser.email }}</p>
+            <p>{{ singleUser.email }}</p>
             <div class="row py-3 row-cols-1 row-cols-md-3">
                 <div v-for="book in singleUser.books" :key="book.id" class="col mb-4">
                     <div class="card">
